@@ -1,86 +1,78 @@
-# Fengzhichu Theme
+mediator
+========
 
-A jekyll theme for personal blog which based on [Type theme](https://github.com/rohanchandra/type-theme) and [ibireme's blog](http://blog.ibireme.com). Add several useful features. Fengzhichu Theme is powered by [Jekyll](http://jekyllrb.com/) and freely
-hosted in [Github pages](https://pages.github.com/).
+A medium inspired Jekyll blog theme. The basic idea came from the Ghost theme
+[Readium 2.0](http://www.svenread.com/readium-ghost-theme/). I use mediator on my own blog [The Base](http://blog.base68.com).
 
-## Check the live demo
+Screenshots
+--------
+![screenshot](/assets/images/screenshot1.jpg)
+![screenshot](/assets/images/screenshot2.jpg)
+![screenshot](/assets/images/screenshot3.jpg)
 
-[Fengzhichu Theme Live Demo](https://fengzhichu.com)
+Features
+-------
+* Fully Responsive layout
+* Use header images in articles, if you want to (add tag "image" and url to the image in the front matter section of a post)
+* Minimal design
+* Featured article support
+* FontAwesome implemented for easy use of icons fonts
+* Free & Open Source Font usage
 
-## Screenshots
-![Home page](img/Screenshot1.png)
-![Pst page](img/Screenshot2.png)
-![Archive page](img/Screenshot3.png)
-![Category page](img/Screenshot4.png)
-![About page](img/Screenshot5.png)
-
-## How to use it
-* Star & Fork the [repo](https://github.com/fengzhichu/fengzhichu-theme).
-* Rename repo as 'yourusername.github.io'.
-* You can delete gh-pages branch if you want.
-* Clone your <b>master branch</b> to local directory.
-* Custom the '_config.yml' to your style.
-* Install jekyll can refer 'ruby_install_by_rvm.sh', modify to suit your need.
-* Run jekyll serve -w.
-
-## Customization
-
-###_config.yml
-Some important configurations.
-* imageurl: Randomly change image which display on top of site.
-  * By default image changes everytime when open your site or reflash it. If you want to change image daily or weekly, just append '/daily' or 'weekly' to imageurl.
-* title: Display on browse tab.
-* hometitle: The first menu name of navigation bar.
-* yoursitetitle: Your LOGO place here.
-* visiblewords: Number of words which you want to display in post of homepage.
-* sechby:
-  * category: "Posted in" #Words before Category name.
-  * tag: "with" #Words before Tag name.
-  * example: Posted in 'Category name' with 'Tag name'.
-
-###Tags
-Add new tag.
-* Annotate your post entry front-matter block as usual:
-```yml
+Getting Started
 ---
-layout: post
-title: How To Use Tags And Categories On GitHub Pages Without Plugins
-category: programming
-tags: [github, github-pages, jekyll]
----
+- [Fork this repository](https://github.com/dirkfabisch/mediator)
+- Clone it: `git clone https://github.com/YOUR-USER/mediator`
+- Install the requried gems ([GitHub Pages](https://github.com/github/pages-gem), [Bourbon](https://github.com/thoughtbot/bourbon) and [Jekyll](https://github.com/jekyll/jekyll), [Jemoji](https://github.com/jekyll/jemoji)): `bundle install`
+- Run the jekyll server: `bundle exec jekyll serve`
+
+You should have a server up and running locally at <http://localhost:4000>.
+
+Configuration
+-----
+
+The main settings happen in side of the _config.yml file:
+
+### Site
+
+Main settings for the site
+
+* **title**: name of your site
+* **description**: description of your site
+* **logo**: small logo for the site (300x * 300x)
+* **cover**: large background image on the index page
+
+* **name**: name site owner
+* **email**: mail address of the site owner
+* **author**: author name
+* **author_image**: small image of author (300x * 300px)
+* **disqus**: add a disqus forum for your post
+
+### Social
+
+The template allows to add all major social plattforms to your site.
+Fill the the form for each plattform. If you leave the share_* entries empty, the sharing buttons below a post are not shown.  If you leave the **url** and **desc** empty the icons are not shown on the index page, but the share icons on the article pages remains untouched (Thanks to [Phil](https://github.com/philsturgeon))
+
+* **icon**:	name of social plattform (must match a name of [font-awsome](http://fortawesome.github.io/Font-Awesome/) icon set )
+* **url**:	url of your account
+* **desc**: slogan of the plattform
+* **share_url**: share url
+* **share_title**: first part of url for the title
+* **share_link**: second part of the share url for the link to the post
+
+The Liquid template engine will magical combine the different parts to a share url.
+
 ```
-* Add an entry in your _data/tags.yml for every tag.
-```yml
-- slug: github-pages
-  name: GitHub Pages
-```
-* Create a .md file which name is your Tag slug for every tag.
-```yml
----
-layout: blog_by_tag
-tag: github-pages
-permalink: /blog/tag/github-pages/
----
-  ```
+http://twitter.com/share?text=post_title&amp;url=post_url
+````
 
-###Categories
-Similar as Tags.
+See [_config.yml](https://github.com/dirkfabisch/mediator/blob/master/_config.yml) for more examples.
 
-## Thanks
-* Theme template: [type-theme](https://github.com/rohanchandra/type-theme)
-* Navigation bar: [ibireme's blog](http://blog.ibireme.com)
-* Features of Tag and Category: [HOW TO USE TAGS AND CATEGORIES ON GITHUB PAGES WITHOUT PLUGINS](http://www.minddust.com/post/tags-and-categories-on-github-pages/)
+Licensing
+---------
 
-## Enjoy
-- If you like, please star it. Thank you!
-- Enjoy it!
+[MIT](https://github.com/dirkfabisch/mediator/blob/master/LICENCE) with no added caveats, so feel free to use this on your site without linking back to me or using a disclaimer or anything silly like that.
 
-## Copyright & License
-Copyright (C) 2015 - Released under the MIT License.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+Contact
+-------
+I'd love to hear from you at [@dirkfabisch](https://twitter.com/dirkfabisch). Feel free to open issues if you run into trouble or have suggestions. Pull Requests always welcome.

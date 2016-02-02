@@ -1,71 +1,95 @@
 ---
 layout: default
 ---
-<div class="home">
-  <article class="home-feature-image" >
-  <div style="background-image: url('{{ site.baseurl }}/{{ site.theme.place_holder_image }}')"/>
-  <header style="background-image: url('{{ site.imageurl }}')">
-    <p class="call-out-content"> {{ site.theme.header_text }} </p>
-  </header>
-  </article>
 
-	<div class="posts">
-	{% for post in paginator.posts %}
-		{% include post_tags_category.html %}
-		<div class="post-teaser">
-		  <header>
-		    <h1>
-		      <a id="post-link-trans" class="post-link" href="{{ post.url | prepend: site.baseurl }}">
-		        {{ post.title }}
-		      </a>
-		    </h1>
-		    <p id="subtitletrans" class="subtitlecontainer">
-		      <a class="subtitle">{{ post.date | date: "%Y年%m月%-d日" }}</a>
-		      {% if post.author %} | <a class="subtitle" href="{{ site.baseurl }}/about/">{{ post.author }}</a>{% endif %}
-		      {% if post.category and post.tags %} | <a class="subtitle">{{ category_content }}</a> <a class="subtitle">{{ tags_content }}</a>{% endif %}
-		    </p>
-		  </header>
-		  <div class="excerpt">
-		  {% assign num = post.content | number_of_words %}
-		  {% if  num  < site.theme.visiblewords %}
-		    {{ post.content }}
-		  {% else %}
-		    {{ post.content | truncatewords: site.theme.visiblewords }}
-		    <p>
-		    <a class="text" href="{{ post.url | prepend: site.baseurl }}">
-		      {{ site.theme.str_continue_reading }}
-		    </a>
-		    </p>
-		  {% endif %}
-		  </div>
-		</div>
-		{% endfor %}
-	</div>
-
-	<div class="wp-pagenavi">
-	    <span class='pages'>第 {{ paginator.page }} 页，共 {{ paginator.total_pages }} 页</span>
-
-	    {% if paginator.previous_page %}
-	    	<a class="previouspostslink" rel="prev" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" > « </a>
-	    {% endif %}
-
-	      {% if paginator.page == 1 %}
-	        <span class="current">1</span>
-	      {% else %}
-	        <a class="page larger" href="/">1</a>
-	      {% endif %}
-	   
-	    {% for count in (2..paginator.total_pages) %}
-	        {% if count == paginator.page %}
-	          <span class="current">{{ count }}</span>
-	        {% else %}
-	          <a class="page larger" href="{{ site.baseurl }}/blog/page{{ count }}">{{ count }}</a>
-	        {% endif %}
-	    {% endfor %}
-
-	    {% if paginator.next_page %}
-	    	<a class="nextpostslink" rel="next" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" > » </a>
-	    {% endif %}
-
-	</div>
+<div class="teaserimage">
+    <div class="teaserimage-image" {% if site.cover %}style="background-image: url({{ site.cover }})"{% endif %}>
+        Teaser Image
+    </div>
 </div>
+
+<header class="blog-header">
+    {% if site.logo %}
+      <a class="blog-logo" href="{{site.url}}" style="background-image: url('{{ site.logo }}')">{{ site.title }}</a>
+    {% endif %}
+    <h1 class="blog-title">{{ site.title }}</h1>
+    <h2 class="blog-description">{{ site.description }}</h2>
+    <div class="custom-links">
+      {% for social in site.social %}
+        {% if social.url %}
+            <a class="icon-{{ social.icon }}" href="{{ social.url }}" {% if social.desc %} title="{{ social.desc }}"{% endif %}">
+              <i class="fa fa-{{ social.icon }}"></i>
+            </a>
+            &nbsp;&nbsp;·&nbsp;&nbsp;
+        {% endif %}
+      {% endfor %}
+      <a href="/about/">About</a>
+    </div>
+</header>
+
+
+<main class="content" role="main">
+
+    {% if site.tags.featured %}
+    <h5 class="index-headline featured"><span>Featured</span></h5>
+
+    <div class="container featured">
+      {% for post in site.tags.featured %}
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">
+          <div class="article-item">
+            <header class="post-header">
+              <h2 class="post-title" itemprop="name"><a href="{{ post.url }}" itemprop="url">{{ post.title }}</a></h2>
+            </header>
+            <section class="post-excerpt" itemprop="description">
+              <p>{{ post.content | strip_html | truncatewords: 50 }}</p>
+            </section>
+            <div class="post-meta">
+              <time datetime="{{ post.date | date_to_long_string }}">{{ post.date | date_to_long_string }}</time>
+  <!--            <span class="post-tags-set">on {{#foreach tags}}<span class="post-tag-{{slug}}">{{#if @first}}{{else}}, {{/if}}<a href="/tag/{{slug}}">{{name}}</a></span>{{/foreach}}</span>-->
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <h5 class="index-headline normal"><span>Regular</span></h5>
+    {% endif %}
+
+    <div class="cf frame">
+      {% for post in paginator.posts %}
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">
+          <div class="article-item">
+            <header class="post-header">
+              <h2 class="post-title" itemprop="name"><a href="{{ post.url }}" itemprop="url">{{ post.title }}</a></h2>
+            </header>
+            <section class="post-excerpt" itemprop="description">
+              <p>{{ post.excerpt | strip_html | truncatewords: 50 }}</p>
+            </section>
+            <div class="post-meta">
+              <time datetime="{{ post.date | date_to_long_string }}">{{ post.date | date_to_long_string }}</time>
+<!--            <span class="post-tags-set">on {{#foreach tags}}<span class="post-tag-{{slug}}">{{#if @first}}{{else}}, {{/if}}<a href="/tag/{{slug}}">{{name}}</a></span>{{/foreach}}</span>-->
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <nav class="pagination" role="navigation">
+      {% if paginator.next_page %}
+        <a class="newer-posts" href="/page{{paginator.next_page}}">&larr; Older posts</a>
+      {% endif %}
+      <span class="page-number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+      {% if paginator.previous_page %}
+        {% if paginator.page == 2 %}
+          <a class="older-posts" href="/">Newer posts &rarr;</a>
+        {% else %}
+          <a class="older-posts" href="/page{{paginator.previous_page}}">Newer posts &rarr;</a>
+        {% endif %}
+      {% endif %}
+    </nav>
+
+
+    <!-- {{!! After all the posts, we have the previous/next pagination links }}
+    {{pagination}} -->
+
+</main>
