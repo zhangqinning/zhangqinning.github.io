@@ -1,7 +1,7 @@
 # Site wide configuration
 
-title:            Site Title
-locale:           en_US
+title:            ZQN的博客
+locale:           zh_CN
 url:
 
 
@@ -41,7 +41,7 @@ titlecase: true
 
 # Site owner
 owner:
-  name: Your Name
+  name: ZQN
   avatar: bio-photo.jpg
   bio: "Describe your self."
   email:
