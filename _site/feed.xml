@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-02-04T01:24:54+08:00</updated>
+<updated>2016-02-04T01:41:47+08:00</updated>
 <id>/</id>
 <author>
   <name>ZQN</name>
@@ -25,7 +25,7 @@
     <email>zhangqinning@foxmail.com</email>
   </author>
   <content type="html">
-    &lt;h1 id=&quot;section&quot;&gt;前言&lt;/h1&gt;
+    &lt;h2 id=&quot;section&quot;&gt;前言&lt;/h2&gt;
 
 &lt;p&gt;校招过去三个月了，本来想以某种形式纪念一下这段日子，但是找完工作的日子太过舒服了，懒散惯了就不想下笔了，好在十八说想要记录友人的生存状态，于是打算憋一憋，看能出来个什么鬼。
 想了一下就把自己觉得帮助到自己的部分都念叨一边，最好能帮到别人，最差以后可以看看秋招中的自己。
@@ -34,7 +34,7 @@
 1.普通211学校硕士毕业，本科保研。
 2.软件工程专业。&lt;/p&gt;
 
-&lt;h1 id=&quot;section-1&quot;&gt;准备&lt;/h1&gt;
+&lt;h2 id=&quot;section-1&quot;&gt;准备&lt;/h2&gt;
 
 &lt;p&gt;差不多秋招前3个月开始，所以算下来大概是六月底到七月的样子，暑假待在家里闭关，过度紧张。&lt;/p&gt;
 
@@ -46,11 +46,11 @@
 设备：
 作品：&lt;/p&gt;
 
-&lt;h1 id=&quot;section-2&quot;&gt;面试技巧&lt;/h1&gt;
+&lt;h2 id=&quot;section-2&quot;&gt;面试技巧&lt;/h2&gt;
 
 &lt;p&gt;百度&lt;/p&gt;
 
-&lt;h1 id=&quot;section-3&quot;&gt;感悟&lt;/h1&gt;
+&lt;h2 id=&quot;section-3&quot;&gt;感悟&lt;/h2&gt;
 
 
     &lt;p&gt;&lt;a href=&quot;/%E6%A0%A1%E6%8B%9B%E5%9B%9E%E5%BF%86/&quot;&gt;校招回忆&lt;/a&gt; was originally published by ZQN at &lt;a href=&quot;&quot;&gt;ZQN的博客&lt;/a&gt; on February 01, 2016.&lt;/p&gt;
@@ -219,7 +219,37 @@
 
 &lt;p&gt;An example of a Gist embed below.&lt;/p&gt;
 
-&lt;p&gt;true&lt;script src=&quot;https://gist.github.com/mmistakes/6589546.js&quot;&gt; &lt;/script&gt;&lt;/p&gt;
+&lt;noscript&gt;&lt;pre&gt;---
+layout: page
+title: Tag Index
+description: &amp;quot;An archive of posts sorted by tag.&amp;quot;
+---
+
+{% capture tags %}
+  {% for tag in site.tags %}
+    {{ tag[0] | replace: &amp;#39; &amp;#39;, &amp;#39;&amp;amp;nbsp;&amp;#39; }}
+  {% endfor %}
+{% endcapture %}
+{% assign sortedtags = tags | split: &amp;#39; &amp;#39; | sort %}
+
+&amp;lt;ul class=&amp;quot;tag-box inline&amp;quot;&amp;gt;
+{% for tag in sortedtags %}
+  {% for post in site.tags[tag] %}
+		&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;#{{ tag }}&amp;quot;&amp;gt;{{ tag }}&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+	{% endfor %}
+{% endfor %}
+&amp;lt;/ul&amp;gt;
+
+{% for tag in sortedtags %}
+	&amp;lt;h2 id=&amp;quot;{{ tag }}&amp;quot;&amp;gt;{{ tag }}&amp;lt;/h2&amp;gt;
+	&amp;lt;ul class=&amp;quot;post-list&amp;quot;&amp;gt;
+	{% for post in site.tags[tag] %}
+		&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;{{ site.url }}{{ post.url }}&amp;quot;&amp;gt;{{ post.title }}&amp;lt;span class=&amp;quot;entry-date&amp;quot;&amp;gt;&amp;lt;time datetime=&amp;quot;{{ post.date | date_to_xmlschema }}&amp;quot; itemprop=&amp;quot;datePublished&amp;quot;&amp;gt;{{ post.date | date: &amp;quot;%B %d, %Y&amp;quot; }}&amp;lt;/time&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+	{% endfor %}
+	&amp;lt;/ul&amp;gt;
+{% endfor %}&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/mmistakes/6589546.js&quot;&gt; &lt;/script&gt;
+
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
