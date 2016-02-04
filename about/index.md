@@ -3,6 +3,8 @@ layout: page
 title: 关于我
 tags: [about]
 comments: true
+image:
+  feature: sample-image-2.jpg
 
 ---
 
