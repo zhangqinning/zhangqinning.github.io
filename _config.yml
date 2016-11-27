@@ -1,77 +1,115 @@
-# Site wide configuration
+# ---------------- #
+#   Main Configs   #
+# ---------------- #
+baseurl:
+# url: may a onw url
+date_format: "ordinal"
+title: ZQN的博客
+subtitle: ""
+description: "ZQN的个人博客"
+keywords: ZQN, zqn, zhangqinning
+favicon: /favicon.ico
+timezone: Asia/Beijing
+encoding: "utf-8"
+side_bar_repo_limit: 5
 
-title:            ZQN的博客
-locale:           zh_CN
-url:
+# ---------------- #
+#      Author      #
+# ---------------- #
+author: zhuangqinning
+organization: Baidu, Inc.
+# organization_url: https://www.sogou.com
+location: Beijing, China
+email: zhangqinning1990@gmail.com
 
+# ---------------- #
+#    Navigation    #
+# ---------------- #
+navs:
+  -
+    href: /
+    label: 首页
 
-# Jekyll configuration
+  -
+    href: /categories/
+    label: 分类
 
-permalink:   /:categories/:title/
-markdown:    kramdown
-highlighter: rouge
-sass:
-  sass_dir: _sass
-  style: compressed
-gems:
-  - jekyll-sitemap
-  - jekyll-gist
+  # -
+  #   href: /wiki/
+  #   label: 维基
 
+  # -
+  #   href: /links/
+  #   label: 链接
+
+  -
+    href: /about/
+    label: 关于
+
+# ---------------- #
+#       RSS        #
+# ---------------- #
+# subscribe_rss: /feed.xml
+
+# ---------------- #
+#      Jekyll      #
+# ---------------- #
+markdown: kramdown
 kramdown:
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  enable_coderay: false
+    input: GFM
+highlighter: rouge
+paginate: 8
+lsi: false
+quiet: false
+excerpt_separator: "\n\n"
+permalink: /:year/:month/:day/:title/
+gems:
+    - jekyll-github-metadata
+    - rouge
+#     - jekyll-html-pipeline
+    - jekyll-paginate
+    - jekyll-sitemap
+    - jekyll-feed
+    - jemoji
+#     - jekyll-mentions
+collections:
+    wiki:
+        output: true
+        permalink: /wiki/:path/
 
+repository: zhangqinning/zhangqinning.github.io
 
-# Octopress
+# ---------------- #
+#      Socials     #
+# ---------------- #
+# github_username: mzlogin
+# douban_username: freedim
+# facebook_username: mzlogin
+# weibo_username: mzlogin
+# zhihu_username: mzlogin
+# twitter_username: mzlogin
 
-# Default extensions
-post_ext: md
-page_ext: md
+# ---------------- #
+#      Comments    #
+# ---------------- #
+# support provider: disqus, duoshuo
+# comments_provider: disqus
+# !!!重要!!! 请修改下面两个用户名为你自己申请的
+# !!!Important!!! Please modify usernames below to yours
+# duoshuo_username: mazhuang
+# disqus_username: mzlogin
+# 在使用 disqus 的时候可点击显示多说评论框
+# lazy_load_duoshuo: true
 
-# Found in _templates/
-post_layout: post
-page_layout: page
+# ---------------- #
+#    Analytics     #
+# ---------------- #
+# google:
+#     analytics_id: UA-80669434-1
 
-# Format titles with titlecase?
-titlecase: true
-
-
-# Site owner
-owner:
-  name: ZQN
-  avatar: bio-photo.jpg
-  bio: "Android、Git初学者"
-  email: zhangqinning@foxmail.com
-  disqus-shortname:
-  twitter: #username
-  facebook: #username
-  google:
-    plus: #username
-    analytics:
-    verify:
-    ad-client:
-    ad-slot:
-  bing-verify:
-  github: zhangqinning
-  #username
-  stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
-  linkedin: #username
-  xing: #username
-  instagram: #username
-  lastfm: #username
-  tumblr: #username
-  pinterest: #username
-  foursquare: #username
-  steam: #username
-  dribbble: #username
-  youtube: #username
-  soundcloud: #username
-  weibo: #username
-  flickr: #username
-  codepen: #username
-
-include: [".htaccess"]
-exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
+# ---------------- #
+#      Datas       #
+# ---------------- #
+skill_software_keywords: [Java, C++, Python, Design Patterns]
+skill_mobile_app_keywords: [Android, Reverse Engineering]
+skill_windows_keywords: [Win32 SDK, DuiLib, WTL, COM, WinDbg]
