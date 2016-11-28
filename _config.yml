@@ -92,7 +92,7 @@ repository: zhangqinning/zhangqinning.github.io
 # ---------------- #
 #      Comments    #
 # ---------------- #
-support provider: disqus, duoshuo
+# support provider: disqus, duoshuo
 comments_provider: disqus
 # !!!重要!!! 请修改下面两个用户名为你自己申请的
 # !!!Important!!! Please modify usernames below to yours
