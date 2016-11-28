@@ -11,7 +11,7 @@ keywords: ZQN, zqn, zhangqinning
 favicon: /favicon.ico
 timezone: Asia/Beijing
 encoding: "utf-8"
-side_bar_repo_limit: 5
+side_bar_repo_limit: 0
 
 # ---------------- #
 #      Author      #
@@ -104,8 +104,8 @@ lazy_load_duoshuo: true
 # ---------------- #
 #    Analytics     #
 # ---------------- #
-# google:
-#     analytics_id: UA-80669434-1
+google:
+    analytics_id:UA-88107232-1
 
 # ---------------- #
 #      Datas       #
