@@ -1,4 +1,11 @@
-# LeetCode [Rotate List] 
+---
+layout: post
+title: LeetCode [Rotate List]
+categories: [LeetCode]
+description: 链表基础
+keywords: LeetCode，Reverse Nodes in k-Group,链表
+---
+![](http://easyread.ph.126.net/Xo42hnQbT_PypBdne7hdHg==/7806617219606122878.jpg?param=178x140)
 
 Given a list, rotate the list to the right by k places, where k is non-negative.
 
