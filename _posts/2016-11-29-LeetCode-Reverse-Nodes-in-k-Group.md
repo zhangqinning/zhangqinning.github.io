@@ -5,7 +5,6 @@ categories: [LeetCode]
 description: 链表基础
 keywords: LeetCode，Reverse Nodes in k-Group,链表
 ---
-![](http://easyread.ph.126.net/Xo42hnQbT_PypBdne7hdHg==/7806617219606122878.jpg?param=178x140)
 
 Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.
 
