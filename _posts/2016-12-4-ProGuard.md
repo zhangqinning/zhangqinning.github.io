@@ -67,7 +67,7 @@ retrace.bat -verbose mapping.txt obfuscated_trace.txt
 
 列出从 .apk 删除的代码
 
-### @Keep注解来防止混淆
+#### @Keep注解来防止混淆
 
 介绍一种比较新颖、轻快的方法，通过@Keep注解来灵活的防止混淆，用起来非常的灵活、快捷、方便，怎样用呢？像普通的注解一样，如下：
 
