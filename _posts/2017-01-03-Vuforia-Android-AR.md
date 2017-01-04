@@ -6,9 +6,6 @@ description:
 keywords: AR
 ---
 
-
-## 关于AR
-
 AR(Augmented Reality)终于在2016年因为Pokemon GO大火了一把。
 
 <img src="/images/posts/AR/1.png" width="80%"/>
@@ -43,24 +40,30 @@ Vuforia是一个用于创建AR应用程序的SDK。开发者可以轻松地向�
 
 首先在[Voforia官网](https://developer.vuforia.com/)注册帐号，进入『Develop』，为了使用Voforia需要做下面两件事：
 
-1. 为自己的Android App创建License。
+第一，为自己的Android App创建License。
 license Key 用来作为Vuforia 对此应用的唯一标识，位于Develop>>License Manager。
+
 <img src="/images/posts/AR/2.png" width="80%"/>
 
 填写应用名称，跟随网站向导就也可以生产License Key。
+
 <img src="/images/posts/AR/3.png" width="80%"/>
 
 在License Manager中可以查看到Key值，稍后在Unity中使用。
+
 <img src="/images/posts/AR/4.png" width="80%"/>
 
-2. 准备数据和跟踪标记
+第二，准备数据和跟踪标记
 将图片作为跟踪标记，在网站制作为数据集。路径为：Develop>>Target Manager ，添加数据集。
+
 <img src="/images/posts/AR/5.png" width="80%"/>
 
-一个数据集可以包含多个跟踪标识，跟踪标记可以是图片甚至是3D文件，这里以图片为例，Width属性官方建议50.
+一个数据集可以包含多个跟踪标识，跟踪标记可以是图片甚至是3D文件，这里以图片为例，Width属性官方建议50。
+
 <img src="/images/posts/AR/6.png" width="80%"/>
 
 上传图片之后查看Rating值，此值代表上传图片作为跟踪目标的质量。
+
 <img src="/images/posts/AR/7.png" width="80%"/>
 
 检查跟踪目标质量也可以选择数据集的Show features，查看用来识别的图像特征。对于图片来说Vuforia识别的是图片特征比如灰度、对比度之类的，与图片的颜色无关。
