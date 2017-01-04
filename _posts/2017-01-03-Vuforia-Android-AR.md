@@ -27,7 +27,7 @@ AR在技术层面上就是和人一样识别一个真实的环境，在机器的
 
 Vuforia是一个用于创建AR应用程序的SDK。开发者可以轻松地向自己的应用程序中添加AR的功能，使得我们的程序可以识别图像或者是在现实世界中重建环境。
 
-##使用Unity3D和Vuforia完成AR Android App
+## 使用Unity3D和Vuforia完成AR Android App
 
  Vuforia可以配合Uniyt3D来完成一个AR的App，使用的工具有：
  
